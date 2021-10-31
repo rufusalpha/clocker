@@ -6,4 +6,5 @@ TO DO LIST
 1. Clock w/ animation - DONE
 2. Login screen
 3. Adding times to database. 
-4. (optional) light mode
+4. Display times from database using scroll
+5. (optional) light mode
