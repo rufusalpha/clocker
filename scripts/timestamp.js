@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 function timestamp() {
     $.ajax({
-        url: 'http://localhost/clocker/timestamp.php',
+        url: 'http://localhost/clocker/backend/timestamp.php',
         success: function(data) {
             $('#timestamp').html(data);
         },

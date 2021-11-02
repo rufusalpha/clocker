@@ -1,50 +1,47 @@
+<?php ob_start(); session_start(); ?>
+
 <!DOCTYPE html>
-<html> 
+<html lang="pl"> 
 	<head>
 			<title>Clocker - log your hours properly :D</title>
 			<meta charset="utf-8">
 		
 			<link rel="stylesheet" href="style/main.css">
+			<link rel="stylesheet" href="style/clock.css">
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
 			<script src="scripts/jquery-3.6.0.min.js"></script>
 			<script src="scripts/timestamp.js"></script>
+			
+			
 	
 	</head>
 	
 	<body>
-		<div id="timestamp"></div>
-		<div class="clock">
-  			<div class="hours-container">
-   				<div class="hours" id="hours"></div>
-  			</div>
-  			<div class="minutes-container">
-    			<div class="minutes" id="minutes"></div>
-  			</div>
-			<div class="seconds-container">
-				<div class="seconds" id="seconds"></div>
-			</div>
-		</div>
+		<div id="timestamp"></div> <!--timestamp-->
 
-		<script>
-			const degr = 6;
-			const hr = document.querySelector('#hours');
-			const mn = document.querySelector('#minutes');
-			const sc = document.querySelector('#seconds');
+		<div class="form-logout" <?php if(!isset($_SESSION['UID'])) { echo 'style="visibility: hidden;"';} ?> >
+		
+			<form method="POST" action="backend/refresh.php">
+				<input class="btn" type="submit" name="refresh" value="Log Out">
+			</form>
+		</div> <!-- form-logut -->
 
-			var test = document.getElementsByTagName('timestamp');
-			document.write(test);
+		<div class="form-login" <?php if(isset($_SESSION['UID'])) { echo 'style="visibility: hidden;"'; } ?> >
+			<h1>Sign in</h1>
+			<form method="POST" action="backend/login.php" name="form_login" >
+				<input class="txt" type="text" name="login" placeholder="login">
+				<input class="txt" type="password" name="passwd" placeholder="password">
+				<input class="btn" type="submit" name="sumbit" value="Send">
+			</form>
+		
 
-			setInterval(() => {
-				let day = new Date();
-				let hh = day.getHours() * 30;
-				let mm = day.getMinutes() * degr;
-				let ss = day.getSeconds() * degr;
-				hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
-				mn.style.transform = `rotateZ(${mm}deg)`;
-				sc.style.transform = `rotateZ(${ss}deg)`;
-			})
-		</script>
+		</div> <!-- form-login -->
 
-		<div class="light-mode"></div>
+		<?php 
+			if( isset($_SESSION['UID']) ){	include("clocker.php"); }
+		?>
 	</body>
 </html>
 
