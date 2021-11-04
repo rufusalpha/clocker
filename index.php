@@ -18,7 +18,7 @@
 	
 	<body>
 		<div id="timestamp"></div> <!--timestamp-->
-		<div class="user" >
+		<div class="user" <?php if(!isset($_SESSION['UID'])) { echo 'style="visibility: hidden;"';} ?> >
 			<?php
 				if( isset($_SESSION['valid']) && $_SESSION['valid'] ){
 					echo '<img src="images/user.png" style="width: 30px; height: 30px; filter: drop-shadow(1px 2px 2px #000);filter: invert(0.5);"><h2>' . $_SESSION['uname'] . "</h2>";
