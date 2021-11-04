@@ -9,7 +9,8 @@
     background: url(../images/clock.svg) no-repeat center;
     background-size: 86%;
     display: block;
-    box-shadow: 0 -20px 20px rgba( 255, 255, 255, 0.05), inset 0 -20px 20px rgba( 255, 255, 255, 0.05), 0 20px 20px rgba( 0, 0, 0, 0.3), inset 0 20px 20px rgba( 0, 0, 0, 0.3);
+    border: 3px solid #2c2c2c;
+    box-shadow: 7px 7px 13px #222222, -7px -7px 13px #3b3b3b, inset 7px 7px 13px #222222, inset -7px -7px 13px #3b3b3b;
 }
 
 .clock_dot {
