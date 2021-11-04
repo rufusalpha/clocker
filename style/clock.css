@@ -1,10 +1,10 @@
 .clock {
     position: absolute;
-    top: 30%;
+    top: 35%;
     left: 50%;
     transform: translate( -50%, -50%);
-    height: 20em;
-    width: 20em;
+    height: 15em;
+    width: 15em;
     border-radius: 50%;
     background: url(../images/clock.svg) no-repeat center;
     background-size: 86%;

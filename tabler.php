@@ -11,11 +11,17 @@
     echo "<table> <tr><th>Date</th><th>Started at</th><th>Stopped at</th><th>Work time</th><tr>";
         if( $stmt->rowCount() > 0 ){
             while( $row = $stmt->fetch() ){
-                $stp = strtotime($row['time_stop']);
-                $str = strtotime($row['time_start']);
+                $stop = strtotime($row['time_stop']);
+                $start = strtotime($row['time_start']);
 
-                $interval = $stp - $str;
-                echo "<tr><td>".$row['date'] . "</td><td>" . $row['time_start'] . "</td><td>" . $row['time_stop'] . "</td><td>" . gmdate("H:i:s", $interval) . "</td><td>" . "</td></tr>";
+                if( $stop >= $start ){
+                    $interval = $stop - $start;
+                    echo "<tr><td>".$row['date'] . "</td><td>" . $row['time_start'] . "</td><td>" . $row['time_stop'] . "</td><td>" . gmdate("H:i:s", $interval) . "</td><td>" . "</td></tr>";
+                }
+                else{
+                    echo "<tr><td>".$row['date'] . "</td><td>" . $row['time_start'] . "</td><td>" . $row['time_stop'] . "</td><td>invalid</td><td>" . "</td></tr>";
+                }
+                
             }
         }
     echo "</table>";
