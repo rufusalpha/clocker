@@ -35,7 +35,7 @@
                 catch( PDOException $exception ){
                     echo "Connection Failed: " . $exception->getMessage() . "<br>";
                 }
-                echo "Connection Success<br>";
+                //echo "Connection Success<br>";
                 return $this->db_connection;
             }
             else{
@@ -66,15 +66,47 @@
             $this->usr_pass = $pass;
         }
 
-       
+       /**
+        * get user id
+        * @return   int $usr_uid
+        */
         public function getUID(){ return $this->usr_uid; }
+
+        /**
+        * get user name
+        * @return   string $usr_name
+        */
         public function getName(){ return $this->usr_name; }
+
+        /**
+        * get user password
+        * @return   string $usr_pass
+        */
         public function getPass(){ return $this->usr_pass; }
 
+
+        /**
+        * set user id
+        * @param   int $usr_id
+        */
         public function setUID( $uid ){ $this->usr_uid = $uid; }
+
+        /**
+        * set user name
+        * @param   string $usr_name
+        */
         public function setName( $name ){ $this->usr_name = $name; }
+
+        /**
+        * set user password
+        * @param   int $usr_pass
+        */
         public function setPass( $pass ){ $this->usr_pass = $pass; }
 
+
+        /**
+        * void function, prints contents of object variables
+        */
         public function printUser(){ echo $this->getUID() . " " . $this->getName() . " " . $this->getPass() . "<br>"; }
 
         

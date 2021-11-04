@@ -7,8 +7,19 @@
     </div>
     <div class="seconds-container">
         <div class="seconds" id="seconds"></div>
+        <div class="clock_dot"></div>
     </div>
+    
     <script src="scripts/clocker.js"></script>
+
 </div> <!-- clock -->
 
-<?php
+<div class="form-clock">
+    <form method="POST" action="backend/send.php">
+        <input class="btn" id="start" type="submit" name="submit" value="Start Work">
+    </form>
+
+    <form method="POST" action="backend/send.php">
+        <input class="btn" id="stop" type="submit" name="submit" value="Stop Work">
+    </form>
+</div> <!-- form-clock -->
